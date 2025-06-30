@@ -22,7 +22,10 @@ import {
   Briefcase,
   User,
   MessageSquare,
-  ChevronDown
+  ChevronDown,
+  Monitor,
+  Server,
+  Wrench
 } from "lucide-react";
 
 const Index = () => {
@@ -130,12 +133,30 @@ const Index = () => {
   ];
 
   const skills = {
-    "Languages": ["Java", "Python", "TypeScript", "JavaScript", "C/C++"],
-    "Frontend": ["React.js", "AngularJS", "HTML", "CSS"],
-    "Backend": ["Spring Boot", "Node.js", "Express.js", "Spring Security"],
-    "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "GitHub Actions"],
-    "Databases": ["MySQL", "MongoDB", "Redis"],
-    "Tools": ["Git", "JIRA", "Postman", "ELK Stack", "Prometheus"]
+    "Languages": {
+      icon: Code,
+      items: ["Java", "Python", "TypeScript", "JavaScript", "C/C++"]
+    },
+    "Frontend": {
+      icon: Monitor,
+      items: ["React.js", "AngularJS", "HTML", "CSS"]
+    },
+    "Backend": {
+      icon: Server,
+      items: ["Spring Boot", "Node.js", "Express.js", "Spring Security"]
+    },
+    "Cloud & DevOps": {
+      icon: Cloud,
+      items: ["AWS", "Docker", "Kubernetes", "Jenkins", "GitHub Actions"]
+    },
+    "Databases": {
+      icon: Database,
+      items: ["MySQL", "MongoDB", "Redis"]
+    },
+    "Tools": {
+      icon: Wrench,
+      items: ["Git", "JIRA", "Postman", "ELK Stack", "Prometheus"]
+    }
   };
 
   return (
@@ -153,7 +174,7 @@ const Index = () => {
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className={`capitalize hover:text-blue-400 transition-colors ${
-                    activeSection === section ? "text-blue-400" : ""
+                    activeSection === section ? "text-blue-400" : "text-gray-300"
                   }`}
                 >
                   {section}
@@ -173,6 +194,18 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            {/* Profile Picture */}
+            <div className="mb-8 flex justify-center">
+              <div className="relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=200&fit=crop&crop=face" 
+                  alt="Profile" 
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-blue-400/50 shadow-2xl"
+                />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-500/20"></div>
+              </div>
+            </div>
+            
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Hi, I'm <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">John Doe</span>
             </h1>
@@ -212,45 +245,50 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="mb-8">
-                <h3 className="text-2xl font-semibold mb-4 flex items-center">
+                <h3 className="text-2xl font-semibold mb-4 flex items-center text-white">
                   <BookOpen className="w-6 h-6 mr-3 text-blue-400" />
                   Education
                 </h3>
                 <div className="space-y-4">
                   <Card className="bg-slate-700/50 border-slate-600">
                     <CardContent className="p-6">
-                      <h4 className="font-semibold text-lg">Master's in Computer Science</h4>
+                      <h4 className="font-semibold text-lg text-white">Master's in Computer Science</h4>
                       <p className="text-blue-400">Texas A&M University - Corpus Christi</p>
-                      <p className="text-gray-400">January 2024 - May 2025 | GPA: 3.75</p>
+                      <p className="text-gray-300">January 2024 - May 2025 | GPA: 3.75</p>
                     </CardContent>
                   </Card>
                   <Card className="bg-slate-700/50 border-slate-600">
                     <CardContent className="p-6">
-                      <h4 className="font-semibold text-lg">Bachelor's in Electronics & Communication</h4>
+                      <h4 className="font-semibold text-lg text-white">Bachelor's in Electronics & Communication</h4>
                       <p className="text-blue-400">VR Siddhartha Engineering College</p>
-                      <p className="text-gray-400">July 2016 - September 2020 | GPA: 3.75</p>
+                      <p className="text-gray-300">July 2016 - September 2020 | GPA: 3.75</p>
                     </CardContent>
                   </Card>
                 </div>
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-6 flex items-center">
+              <h3 className="text-2xl font-semibold mb-6 flex items-center text-white">
                 <Settings className="w-6 h-6 mr-3 text-blue-400" />
                 Technical Skills
               </h3>
               <div className="space-y-6">
-                {Object.entries(skills).map(([category, items]) => (
-                  <div key={category}>
-                    <h4 className="font-semibold mb-3 text-blue-400">{category}</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((skill) => (
-                        <Badge key={skill} variant="secondary" className="bg-slate-600 hover:bg-slate-500 transition-colors">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
+                {Object.entries(skills).map(([category, { icon: IconComponent, items }]) => (
+                  <Card key={category} className="bg-slate-700/30 border-slate-600/50 hover:bg-slate-700/50 transition-colors">
+                    <CardContent className="p-4">
+                      <h4 className="font-semibold mb-3 text-blue-400 flex items-center">
+                        <IconComponent className="w-5 h-5 mr-2" />
+                        {category}
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {items.map((skill) => (
+                          <Badge key={skill} variant="secondary" className="bg-slate-600/80 text-gray-200 hover:bg-slate-500 transition-colors border border-slate-500">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
                 ))}
               </div>
             </div>
@@ -271,8 +309,8 @@ const Index = () => {
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                     <div>
                       <h3 className="text-2xl font-semibold text-blue-400 mb-2">{exp.role}</h3>
-                      <h4 className="text-xl font-medium mb-2">{exp.company}</h4>
-                      <p className="text-gray-400 flex items-center">
+                      <h4 className="text-xl font-medium mb-2 text-white">{exp.company}</h4>
+                      <p className="text-gray-300 flex items-center">
                         <MapPin className="w-4 h-4 mr-2" />
                         {exp.location}
                       </p>
@@ -318,7 +356,7 @@ const Index = () => {
                   <p className="text-gray-300 mb-4 text-sm leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-slate-600 text-xs">
+                      <Badge key={tech} variant="secondary" className="bg-slate-600 text-gray-200 text-xs">
                         {tech}
                       </Badge>
                     ))}
@@ -348,7 +386,7 @@ const Index = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-white">Let's Connect</h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
                 I'm always interested in hearing about new opportunities and exciting projects. 
                 Whether you have a question or just want to say hi, I'll try my best to get back to you!
@@ -356,15 +394,15 @@ const Index = () => {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 mr-4 text-blue-400" />
-                  <span>john.doe@example.com</span>
+                  <span className="text-gray-300">john.doe@example.com</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 mr-4 text-blue-400" />
-                  <span>+1 (555) 123-4567</span>
+                  <span className="text-gray-300">+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 mr-4 text-blue-400" />
-                  <span>Corpus Christi, TX</span>
+                  <span className="text-gray-300">Corpus Christi, TX</span>
                 </div>
               </div>
               <div className="flex space-x-4 mt-8">
@@ -382,29 +420,29 @@ const Index = () => {
               <CardContent className="p-8">
                 <form onSubmit={handleContactSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Name</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">Name</label>
                     <Input 
                       placeholder="Your Name" 
                       required 
-                      className="bg-slate-700 border-slate-600 focus:border-blue-400"
+                      className="bg-slate-700 border-slate-600 focus:border-blue-400 text-white placeholder:text-gray-400"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
                     <Input 
                       type="email" 
                       placeholder="your.email@example.com" 
                       required 
-                      className="bg-slate-700 border-slate-600 focus:border-blue-400"
+                      className="bg-slate-700 border-slate-600 focus:border-blue-400 text-white placeholder:text-gray-400"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Message</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-300">Message</label>
                     <Textarea 
                       placeholder="Your message..." 
                       required 
                       rows={5}
-                      className="bg-slate-700 border-slate-600 focus:border-blue-400"
+                      className="bg-slate-700 border-slate-600 focus:border-blue-400 text-white placeholder:text-gray-400"
                     />
                   </div>
                   <Button type="submit" className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
