@@ -12,7 +12,6 @@ import {
   Phone, 
   MapPin, 
   Download,
-  ExternalLink,
   Code,
   Database,
   Cloud,
@@ -73,24 +72,21 @@ const Index = () => {
       description: "Developed AI-powered agents to automate job search using n8n and Relevance.ai with LLM integration for intelligent matching.",
       technologies: ["n8n", "Relevance.ai", "LLM", "Automation", "Vector Search"],
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=500&h=300&fit=crop",
-      github: "https://github.com",
-      live: "https://demo.com"
+      github: "https://github.com"
     },
     {
       title: "SyncNote - Real-time Collaboration",
       description: "Distributed caching system for real-time collaboration with WebSocket, RabbitMQ, and Redis backend caching.",
       technologies: ["React", "Node.js", "Redis", "RabbitMQ", "WebSocket"],
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop",
-      github: "https://github.com",
-      live: "https://demo.com"
+      github: "https://github.com"
     },
     {
       title: "Car Rental SaaS Platform",
       description: "Containerized web application with payment gateway, event-driven architecture using Apache Kafka.",
       technologies: ["Spring Boot", "Angular", "MongoDB", "AWS", "Docker", "Kubernetes"],
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=300&fit=crop",
-      github: "https://github.com",
-      live: "https://demo.com"
+      github: "https://github.com"
     }
   ];
 
@@ -197,7 +193,7 @@ const Index = () => {
             <div className="mb-8 flex justify-center">
               <div className="relative">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/lovable-uploads/6eeeb885-ae72-4fd8-9255-3812e3e3f3da.png" 
                   alt="Sahiti Dasara" 
                   className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-blue-400/50 shadow-2xl"
                 />
@@ -359,12 +355,6 @@ const Index = () => {
                         {tech}
                       </Badge>
                     ))}
-                  </div>
-                  <div className="flex justify-center">
-                    <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-600 w-full">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
