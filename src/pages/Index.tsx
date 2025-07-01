@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -207,7 +206,7 @@ const Index = () => {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Hi, I'm <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">John Doe</span>
+              Hi, I'm <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Sahiti Dasara</span>
             </h1>
             <div className="text-2xl md:text-3xl mb-8 h-12">
               <span className="text-gray-300">I'm a </span>
@@ -361,14 +360,10 @@ const Index = () => {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex gap-3">
-                    <Button size="sm" variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white flex-1">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                    <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-600 flex-1">
+                  <div className="flex justify-center">
+                    <Button size="sm" className="bg-gradient-to-r from-blue-500 to-purple-600 w-full">
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      Live
+                      Live Demo
                     </Button>
                   </div>
                 </CardContent>
@@ -394,11 +389,11 @@ const Index = () => {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 mr-4 text-blue-400" />
-                  <span className="text-gray-300">john.doe@example.com</span>
+                  <span className="text-gray-300">sahiti.wd@gmail.com</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 mr-4 text-blue-400" />
-                  <span className="text-gray-300">+1 (555) 123-4567</span>
+                  <span className="text-gray-300">+13464467210</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 mr-4 text-blue-400" />
@@ -458,7 +453,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-slate-700 bg-slate-900">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-400">&copy; 2024 John Doe. Built with React & Tailwind CSS</p>
+          <p className="text-gray-400">&copy; 2024 Sahiti Dasara. Built with React & Tailwind CSS</p>
         </div>
       </footer>
     </div>
