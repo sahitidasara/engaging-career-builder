@@ -62,8 +62,25 @@ const Index = () => {
   const downloadResume = () => {
     toast({
       title: "Resume Download",
-      description: "https://drive.google.com/file/d/1rtcaLSimWxOwlN2c0zJKwLXHuV9V-oqy/view?usp=drive_link",
+      description: "Will download soon",
     });
+     // Create a temporary link element
+  const link = document.createElement('a');
+
+  // Set the href to your download link (replace with your actual link)
+  link.href = "https://drive.google.com/file/d/1rtcaLSimWxOwlN2c0zJKwLXHuV9V-oqy/view?usp=drive_link"; // <--- **IMPORTANT: Replace this with your actual resume link**
+
+  // Set the download attribute to suggest a filename
+  link.setAttribute('download', 'SahitiDasara_resume.pdf'); // <--- **IMPORTANT: Suggest a relevant filename and extension**
+
+  // Append the link to the body (it doesn't need to be visible)
+  document.body.appendChild(link);
+
+  // Programmatically click the link to trigger the download
+  link.click();
+
+  // Clean up: remove the link after a short delay
+  document.body.removeChild(link);
   };
 
   const projects = [
