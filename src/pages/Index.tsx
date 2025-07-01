@@ -62,7 +62,7 @@ const Index = () => {
   const downloadResume = () => {
     toast({
       title: "Resume Download",
-      description: "Resume download will be available soon!",
+      description: "https://drive.google.com/file/d/1rtcaLSimWxOwlN2c0zJKwLXHuV9V-oqy/view?usp=drive_link",
     });
   };
 
