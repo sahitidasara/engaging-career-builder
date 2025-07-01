@@ -197,8 +197,8 @@ const Index = () => {
             <div className="mb-8 flex justify-center">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=200&fit=crop&crop=face" 
-                  alt="Profile" 
+                  src="/placeholder.svg" 
+                  alt="Sahiti Dasara" 
                   className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-blue-400/50 shadow-2xl"
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-500/20"></div>
